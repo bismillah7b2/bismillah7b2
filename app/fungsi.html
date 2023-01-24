@@ -1,0 +1,97 @@
+<?php
+
+function answer($kode){
+    if($kode=='m1'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m2'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m2'>Tidak</a>";
+    }
+    if($kode=='m2'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m3'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m3'>Tidak</a>";
+    }
+
+
+    if($kode=='m3'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m6'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m6'>Tidak</a>";
+    }
+
+    if($kode=='m6'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m8'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m8'>Tidak</a>";
+    }
+    if($kode=='m8'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m4'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m4'>Tidak</a>";
+    }
+    if($kode=='m4'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m5'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m5'>Tidak</a>";
+    }
+    if($kode=='m5'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m7'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m7'>Tidak</a>";
+    }
+    if($kode=='m7'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m9'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m9'>Tidak</a>";
+    }    
+    if($kode=='m9'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m13'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m13'>Tidak</a>";
+    }
+    if($kode=='m13'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m10'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='solusi.html?kode=s1'>Tidak</a>";
+    }
+    if($kode=='m10'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m11'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m11'>Tidak</a>";
+    }
+    if($kode=='m11'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m12'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m12'>Tidak</a>";
+    }
+    if($kode=='m12'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m14'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m14'>Tidak</a>";
+    }
+    if($kode=='m14'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m15'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='question.html?kode=m15'>Tidak</a>";
+    }
+
+
+
+    if($kode=='m15'){
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='solusi.html?kode=s2'>Ya</a>";
+        echo "<a class='btn col-sm-1 mrg btn-lg btn-outline-light' href='solusi.html?kode=s2'>Tidak</a>";
+    }
+    
+    
+
+}
+
+function kesimpulan($jurusan){
+    include 'koneksi.html';
+    $sql = "SELECT * from tb_kesimpulan WHERE solusi='$jurusan' AND status='setuju'";
+    $data = mysqli_query($connect,$sql);
+    while ($row = mysqli_fetch_assoc($data)) {
+        echo '<p>-'.$row['fakta'].'</p>';
+    }  
+}
+
+function solusi($kode){    
+    if ($kode=='s1') {
+        $jurusan = "Influenza";
+        kesimpulan($jurusan);        
+    }
+    if ($kode=='s2') {
+        $jurusan = "Covid-19";
+        kesimpulan($jurusan);
+    }
+    
+}
+
+
+?>
